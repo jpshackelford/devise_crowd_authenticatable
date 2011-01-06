@@ -24,10 +24,10 @@ Make sure to bundle install and rake db:migrate
   eof
 end
 
-desc 'Generate documentation for the devise_ldap_authenticatable plugin.'
+desc 'Generate documentation for the devise_crowd_authenticatable plugin.'
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'DeviseLDAPAuthenticatable'
+  rdoc.title    = 'DeviseCrowdAuthenticatable'
   rdoc.options << '--line-numbers' << '--inline-source'
   rdoc.rdoc_files.include('README')
   rdoc.rdoc_files.include('lib/**/*.rb')
@@ -37,14 +37,14 @@ end
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "devise_ldap_authenticatable"
-    gemspec.summary = "LDAP authentication module for Devise"
-    gemspec.description = "LDAP authentication module for Devise"
-    gemspec.email = "curtis.schiewek@gmail.com"
-    gemspec.homepage = "http://github.com/cschiewek/devise_ldap_authenticatable"
+    gemspec.name = "devise_crowd_authenticatable"
+    gemspec.summary = "Crowd authentication module for Devise"
+    gemspec.description = "Crowd authentication module for Devise"
+    gemspec.email = "jpshack@gmail.com"
+    gemspec.homepage = "http://github.com/jpshackelford/devise_crowd_authenticatable"
     gemspec.authors = ["Curtis Schiewek", "Daniel McNevin"]
     gemspec.add_runtime_dependency "devise", "1.1.2"
-    gemspec.add_runtime_dependency "net-ldap", "0.1.1"
+
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
