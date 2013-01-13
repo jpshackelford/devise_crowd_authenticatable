@@ -11,7 +11,7 @@ require 'devise_crowd_authenticatable/routes'
 module Devise
   # Allow logging
   mattr_accessor :crowd_logger
-  @@cro_logger = true
+  @@crowd_logger = true
   
   # Add valid users to database
   mattr_accessor :d_create_user
