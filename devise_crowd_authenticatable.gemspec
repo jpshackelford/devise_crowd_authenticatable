@@ -3,6 +3,9 @@
 # Instead, edit Jeweler::Tasks in Rakefile, and run the gemspec command
 # -*- encoding: utf-8 -*-
 
+$:.push File.expand_path("../lib", __FILE__)
+require "devise_crowd_authenticatable/version"
+
 Gem::Specification.new do |s|
   s.name     = 'devise_crowd_authenticatable'
   s.version  = DeviseCrowdAuthenticatable::VERSION.dup
