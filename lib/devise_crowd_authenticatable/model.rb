@@ -34,7 +34,7 @@ module Devise
       end
 
       # Checks if a resource is valid upon authentication.
-      def valid_ldap_authentication?(password)
+      def valid_crowd_authentication?(password)
         if Devise::CrowdAdapter.valid_credentials?(login_with, password)
           return true
         else
@@ -49,7 +49,7 @@ module Devise
       module ClassMethods
         # Authenticate a user based on configured attribute keys. Returns the
         # authenticated user if it's valid or nil.
-        def authenticate_with_ldap(attributes={}) 
+        def authenticate_with_crowd(attributes={})
           @login_with = ::Devise.authentication_keys.first
           return nil unless attributes[@login_with].present? 
 
@@ -62,7 +62,7 @@ module Devise
             resource.password = attributes[:password]
           end
                     
-          if resource.try(:valid_ldap_authentication?, attributes[:password])
+          if resource.try(:valid_crowd_authentication?, attributes[:password])
             resource.save if resource.new_record?
             return resource
           else
