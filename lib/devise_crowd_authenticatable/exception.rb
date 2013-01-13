@@ -1,6 +1,6 @@
-module DeviseLdapAuthenticatable
+module DeviseCrowdAuthenticatable
 
-  class LdapException < Exception
+  class CrowdException < Exception
   end
 
 end

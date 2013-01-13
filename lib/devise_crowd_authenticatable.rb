@@ -38,7 +38,7 @@ end
 
 # Add ldap_authenticatable strategy to defaults.
 #
-Devise.add_module(:ldap_authenticatable,
+Devise.add_module(:crowd_authenticatable,
                   :route => :session, ## This will add the routes, rather than in the routes.rb
                   :strategy   => true,
                   :controller => :sessions,

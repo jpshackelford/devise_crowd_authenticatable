@@ -1,4 +1,4 @@
-module DeviseLdapAuthenticatable
+module DeviseCrowdAuthenticatable
   class InstallGenerator < Rails::Generators::Base
     source_root File.expand_path("../templates", __FILE__)
     
@@ -8,8 +8,8 @@ module DeviseLdapAuthenticatable
     class_option :advanced, :type => :boolean, :desc => "Add advanced config options to the devise initializer"
     
     
-    def create_ldap_config
-      copy_file "ldap.yml", "config/ldap.yml"
+    def create_crowd_config
+      copy_file "ldap.yml", "config/crowd.yml"
     end
     
     def create_default_devise_settings
@@ -17,7 +17,7 @@ module DeviseLdapAuthenticatable
     end
     
     def update_user_model
-      gsub_file "app/models/#{options.user_model}.rb", /:database_authenticatable/, ":ldap_authenticatable" if options.update_model?
+      gsub_file "app/models/#{options.user_model}.rb", /:database_authenticatable/, ":crowd_authenticatable" if options.update_model?
     end
     
     def update_application_controller
@@ -28,19 +28,14 @@ module DeviseLdapAuthenticatable
     
     def default_devise_settings
       settings = <<-eof
-  # ==> LDAP Configuration 
-  # config.ldap_logger = true
-  # config.ldap_create_user = false
-  # config.ldap_update_password = true
-  # config.ldap_config = "\#{Rails.root}/config/ldap.yml"
-  # config.ldap_check_group_membership = false
-  # config.ldap_check_attributes = false
-  # config.ldap_use_admin_to_bind = false
+  # ==> CROWD Configuration
+  # config.crowd_config = "\#{Rails.root}/config/crowd.yml"
+
   
       eof
       if options.advanced?  
         settings << <<-eof  
-  # ==> Advanced LDAP Configuration
+  # ==> Advanced Crowd Configuration
   # config.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap| "\#{attribute}=\#{login},\#{ldap.base}" }
   
         eof
@@ -51,7 +46,7 @@ module DeviseLdapAuthenticatable
     
     def rescue_from_exception
       <<-eof
-  rescue_from DeviseLdapAuthenticatable::LdapException do |exception|
+  rescue_from DeviseCrowdAuthenticatable::CrowdException do |exception|
     render :text => exception, :status => 500
   end
       eof
