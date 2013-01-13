@@ -52,7 +52,8 @@ module Devise
         # authenticated user if it's valid or nil.
         def authenticate_with_crowd(attributes={})
           @login_with = ::Devise.authentication_keys.first
-          puts 'CROWD '+@login_with
+          logger.info 'CROWD '+@login_with
+
           return nil unless attributes[@login_with].present? 
 
           # resource = find_for_ldap_authentication(conditions)
