@@ -4,170 +4,34 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{devise_crowd_authenticatable}
-  s.version = "0.4.6"
+  s.name     = 'devise_crowd_authenticatable'
+  s.version  = DeviseCrowdAuthenticatable::VERSION.dup
+  s.platform = Gem::Platform::RUBY
+  s.summary  = 'Devise extension to allow authentication via CROWD'
+  s.email = 'parmargk@gmail.com'
+  s.homepage = 'https://github.com/parmarg/devise_crowd_authenticatable'
+  s.description = s.summary
+  s.authors = ['Gurp Parmar']
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Curtis Schiewek", "Daniel McNevin"]
-  s.date = %q{2010-09-23}
-  s.description = %q{LDAP authentication module for Devise}
-  s.email = %q{curtis.schiewek@gmail.com}
-  s.extra_rdoc_files = [
-    "README.md"
-  ]
-  s.files = [
-    ".gitignore",
-     "MIT-LICENSE",
-     "README.md",
-     "Rakefile",
-     "VERSION",
-     "devise_crowd_authenticatable.gemspec",
-     "lib/devise_crowd_authenticatable.rb",
-     "lib/devise_crowd_authenticatable/exception.rb",
-     "lib/devise_crowd_authenticatable/crowd_adapter.rb",
-     "lib/devise_crowd_authenticatable/logger.rb",
-     "lib/devise_crowd_authenticatable/model.rb",
-     "lib/devise_crowd_authenticatable/routes.rb",
-     "lib/devise_crowd_authenticatable/schema.rb",
-     "lib/devise_crowd_authenticatable/strategy.rb",
-     "lib/devise_crowd_authenticatable/version.rb",
-     "lib/generators/devise_crowd_authenticatable/install_generator.rb",
-     "lib/generators/devise_crowd_authenticatable/templates/ldap.yml",
-     "rails/init.rb",
-     "test/devise_ldap_authenticatable_test.rb",
-     "test/ldap/base.ldif",
-     "test/ldap/clear.ldif",
-     "test/ldap/local.schema",
-     "test/ldap/run-server.sh",
-     "test/ldap/server.pem",
-     "test/ldap/slapd-ssl-test.conf",
-     "test/ldap/slapd-test.conf",
-     "test/rails_app/Gemfile",
-     "test/rails_app/Gemfile.lock",
-     "test/rails_app/Rakefile",
-     "test/rails_app/app/controllers/application_controller.rb",
-     "test/rails_app/app/controllers/posts_controller.rb",
-     "test/rails_app/app/helpers/application_helper.rb",
-     "test/rails_app/app/helpers/posts_helper.rb",
-     "test/rails_app/app/models/post.rb",
-     "test/rails_app/app/models/user.rb",
-     "test/rails_app/app/views/layouts/application.html.erb",
-     "test/rails_app/app/views/posts/index.html.erb",
-     "test/rails_app/config.ru",
-     "test/rails_app/config/application.rb",
-     "test/rails_app/config/boot.rb",
-     "test/rails_app/config/cucumber.yml",
-     "test/rails_app/config/database.yml",
-     "test/rails_app/config/environment.rb",
-     "test/rails_app/config/environments/development.rb",
-     "test/rails_app/config/environments/production.rb",
-     "test/rails_app/config/environments/test.rb",
-     "test/rails_app/config/initializers/backtrace_silencers.rb",
-     "test/rails_app/config/initializers/devise.rb",
-     "test/rails_app/config/initializers/inflections.rb",
-     "test/rails_app/config/initializers/mime_types.rb",
-     "test/rails_app/config/initializers/secret_token.rb",
-     "test/rails_app/config/initializers/session_store.rb",
-     "test/rails_app/config/ldap.yml",
-     "test/rails_app/config/ldap_with_erb.yml",
-     "test/rails_app/config/ldap_with_uid.yml",
-     "test/rails_app/config/locales/devise.en.yml",
-     "test/rails_app/config/locales/en.yml",
-     "test/rails_app/config/routes.rb",
-     "test/rails_app/config/ssl_ldap.yml",
-     "test/rails_app/config/ssl_ldap_with_erb.yml",
-     "test/rails_app/config/ssl_ldap_with_uid.yml",
-     "test/rails_app/db/migrate/20100708120302_create_posts.rb",
-     "test/rails_app/db/migrate/20100708120448_devise_create_users.rb",
-     "test/rails_app/db/schema.rb",
-     "test/rails_app/db/seeds.rb",
-     "test/rails_app/features/manage_logins.feature",
-     "test/rails_app/features/step_definitions/login_steps.rb",
-     "test/rails_app/features/step_definitions/web_steps.rb",
-     "test/rails_app/features/support/env.rb",
-     "test/rails_app/features/support/paths.rb",
-     "test/rails_app/lib/tasks/.gitkeep",
-     "test/rails_app/lib/tasks/cucumber.rake",
-     "test/rails_app/public/404.html",
-     "test/rails_app/public/422.html",
-     "test/rails_app/public/500.html",
-     "test/rails_app/public/images/rails.png",
-     "test/rails_app/public/javascripts/application.js",
-     "test/rails_app/public/javascripts/controls.js",
-     "test/rails_app/public/javascripts/dragdrop.js",
-     "test/rails_app/public/javascripts/effects.js",
-     "test/rails_app/public/javascripts/prototype.js",
-     "test/rails_app/public/javascripts/rails.js",
-     "test/rails_app/public/stylesheets/.gitkeep",
-     "test/rails_app/script/cucumber",
-     "test/rails_app/script/rails",
-     "test/rails_app/test/factories/users.rb",
-     "test/rails_app/test/functional/posts_controller_test.rb",
-     "test/rails_app/test/performance/browsing_test.rb",
-     "test/rails_app/test/test_helper.rb",
-     "test/rails_app/test/unit/helpers/posts_helper_test.rb",
-     "test/rails_app/test/unit/post_test.rb",
-     "test/rails_app/test/unit/user_test.rb",
-     "test/test_helper.rb"
-  ]
-  s.homepage = %q{http://github.com/cschiewek/devise_crowd_authenticatable}
-  s.rdoc_options = ["--charset=UTF-8"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
-  s.summary = %q{LDAP authentication module for Devise}
-  s.test_files = [
-    "test/devise_ldap_authenticatable_test.rb",
-     "test/rails_app/app/controllers/application_controller.rb",
-     "test/rails_app/app/controllers/posts_controller.rb",
-     "test/rails_app/app/helpers/application_helper.rb",
-     "test/rails_app/app/helpers/posts_helper.rb",
-     "test/rails_app/app/models/post.rb",
-     "test/rails_app/app/models/user.rb",
-     "test/rails_app/config/application.rb",
-     "test/rails_app/config/boot.rb",
-     "test/rails_app/config/environment.rb",
-     "test/rails_app/config/environments/development.rb",
-     "test/rails_app/config/environments/production.rb",
-     "test/rails_app/config/environments/test.rb",
-     "test/rails_app/config/initializers/backtrace_silencers.rb",
-     "test/rails_app/config/initializers/devise.rb",
-     "test/rails_app/config/initializers/inflections.rb",
-     "test/rails_app/config/initializers/mime_types.rb",
-     "test/rails_app/config/initializers/secret_token.rb",
-     "test/rails_app/config/initializers/session_store.rb",
-     "test/rails_app/config/routes.rb",
-     "test/rails_app/db/migrate/20100708120302_create_posts.rb",
-     "test/rails_app/db/migrate/20100708120448_devise_create_users.rb",
-     "test/rails_app/db/schema.rb",
-     "test/rails_app/db/seeds.rb",
-     "test/rails_app/features/step_definitions/login_steps.rb",
-     "test/rails_app/features/step_definitions/web_steps.rb",
-     "test/rails_app/features/support/env.rb",
-     "test/rails_app/features/support/paths.rb",
-     "test/rails_app/test/factories/users.rb",
-     "test/rails_app/test/functional/posts_controller_test.rb",
-     "test/rails_app/test/performance/browsing_test.rb",
-     "test/rails_app/test/test_helper.rb",
-     "test/rails_app/test/unit/helpers/posts_helper_test.rb",
-     "test/rails_app/test/unit/post_test.rb",
-     "test/rails_app/test/unit/user_test.rb",
-     "test/test_helper.rb"
-  ]
 
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 3
+  s.add_dependency('devise', '~> 2.0')
+  s.add_dependency('crowd-client', '~> 0.1.5')
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<devise>, ["= 1.1.2"])
-      s.add_runtime_dependency(%q<net-ldap>, ["= 0.1.1"])
-    else
-      s.add_dependency(%q<devise>, ["= 1.1.2"])
-      s.add_dependency(%q<net-ldap>, ["= 0.1.1"])
-    end
-  else
-    s.add_dependency(%q<devise>, ["= 1.1.2"])
-    s.add_dependency(%q<net-ldap>, ["= 0.1.1"])
+  s.add_development_dependency('rake', '>= 0.9')
+  s.add_development_dependency('rdoc', '>= 3')
+  s.add_development_dependency('rails', '~> 3.2')
+  s.add_development_dependency('sqlite3')
+  s.add_development_dependency('ruby-prof')
+  s.add_development_dependency('factory_girl_rails', '~> 1.0')
+  s.add_development_dependency('factory_girl', '~> 2.0')
+  s.add_development_dependency('rspec-rails')
+
+  %w{database_cleaner capybara launchy autotest-rails ZenTest autotest-growl}.each do |dep|
+    s.add_development_dependency(dep)
   end
 end
 
