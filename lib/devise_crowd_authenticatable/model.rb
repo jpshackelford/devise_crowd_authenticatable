@@ -1,8 +1,8 @@
-require 'devise_ldap_authenticatable/strategy'
+require 'devise_crowd_authenticatable/strategy'
 
 module Devise
   module Models
-    # LDAP Module, responsible for validating the user credentials via LDAP.
+    # CROWD Module, responsible for validating the user credentials via Crowd.
     #
     # Examples:
     #
