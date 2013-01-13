@@ -50,16 +50,16 @@ module Devise
         # Authenticate a user based on configured attribute keys. Returns the
         # authenticated user if it's valid or nil.
         def authenticate_with_crowd(attributes={})
-          @login_with = ::Devise.authentication_keys.first
+          login_with = ::Devise.authentication_keys.first
           DeviseCrowdAuthenticatable::Logger.send('CROWD '+@login_with)
-          return nil unless attributes[@login_with].present? 
+          return nil unless attributes[login_with].present?
 
           # resource = find_for_ldap_authentication(conditions)
-          resource = scoped.where(@login_with => attributes[@login_with]).first
-                    
-          if (resource.blank? and ::Devise.ldap_create_user)
+          resource = scoped.where(login_with => attributes[login_with]).first
+
+          if (resource.blank?)
             resource = new
-            resource[@login_with] = attributes[@login_with]
+            resource[login_with] = login_with
             resource.password = attributes[:password]
           end
                     
