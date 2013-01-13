@@ -35,6 +35,7 @@ module Devise
 
       # Checks if a resource is valid upon authentication.
       def valid_crowd_authentication?(password)
+        puts 'CROWD '+login_with
         if Devise::CrowdAdapter.valid_credentials?(login_with, password)
           return true
         else
