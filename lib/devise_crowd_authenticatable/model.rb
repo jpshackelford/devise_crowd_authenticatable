@@ -9,7 +9,7 @@ module Devise
     #    User.authenticate('email@test.com', 'password123')  # returns authenticated user or nil
     #    User.find(1).valid_password?('password123')         # returns true/false
     #
-    module LdapAuthenticatable
+    module CrowdAuthenticatable
       extend ActiveSupport::Concern
 
       included do

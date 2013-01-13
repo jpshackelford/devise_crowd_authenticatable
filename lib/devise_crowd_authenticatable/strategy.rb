@@ -4,7 +4,7 @@ module Devise
   module Strategies
     # Strategy for signing in a user based on his login and password using LDAP.
     # Redirects to sign_in page if it's not authenticated
-    class LdapAuthenticatable < Authenticatable
+    class CrowdAuthenticatable < Authenticatable
       def valid?
         valid_controller? && valid_params? && mapping.to.respond_to?(:authenticate_with_ldap)
       end
@@ -13,7 +13,7 @@ module Devise
       # success and the authenticated user if everything is okay. Otherwise redirect
       # to sign in page.
       def authenticate!
-        if resource = mapping.to.authenticate_with_ldap(params[scope])
+        if resource = mapping.to.authenticate_with_crowd(params[scope])
           success!(resource)
         else
           fail(:invalid)
@@ -33,4 +33,4 @@ module Devise
   end
 end
 
-Warden::Strategies.add(:ldap_authenticatable, Devise::Strategies::LdapAuthenticatable)
+Warden::Strategies.add(:crowd_authenticatable, Devise::Strategies::CrowdAuthenticatable)

@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{devise_ldap_authenticatable}
+  s.name = %q{devise_crowd_authenticatable}
   s.version = "0.4.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -21,18 +21,18 @@ Gem::Specification.new do |s|
      "README.md",
      "Rakefile",
      "VERSION",
-     "devise_ldap_authenticatable.gemspec",
-     "lib/devise_ldap_authenticatable.rb",
-     "lib/devise_ldap_authenticatable/exception.rb",
-     "lib/devise_ldap_authenticatable/ldap_adapter.rb",
-     "lib/devise_ldap_authenticatable/logger.rb",
-     "lib/devise_ldap_authenticatable/model.rb",
-     "lib/devise_ldap_authenticatable/routes.rb",
-     "lib/devise_ldap_authenticatable/schema.rb",
-     "lib/devise_ldap_authenticatable/strategy.rb",
-     "lib/devise_ldap_authenticatable/version.rb",
-     "lib/generators/devise_ldap_authenticatable/install_generator.rb",
-     "lib/generators/devise_ldap_authenticatable/templates/ldap.yml",
+     "devise_crowd_authenticatable.gemspec",
+     "lib/devise_crowd_authenticatable.rb",
+     "lib/devise_crowd_authenticatable/exception.rb",
+     "lib/devise_crowd_authenticatable/crowd_adapter.rb",
+     "lib/devise_crowd_authenticatable/logger.rb",
+     "lib/devise_crowd_authenticatable/model.rb",
+     "lib/devise_crowd_authenticatable/routes.rb",
+     "lib/devise_crowd_authenticatable/schema.rb",
+     "lib/devise_crowd_authenticatable/strategy.rb",
+     "lib/devise_crowd_authenticatable/version.rb",
+     "lib/generators/devise_crowd_authenticatable/install_generator.rb",
+     "lib/generators/devise_crowd_authenticatable/templates/ldap.yml",
      "rails/init.rb",
      "test/devise_ldap_authenticatable_test.rb",
      "test/ldap/base.ldif",
@@ -110,7 +110,7 @@ Gem::Specification.new do |s|
      "test/rails_app/test/unit/user_test.rb",
      "test/test_helper.rb"
   ]
-  s.homepage = %q{http://github.com/cschiewek/devise_ldap_authenticatable}
+  s.homepage = %q{http://github.com/cschiewek/devise_crowd_authenticatable}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
