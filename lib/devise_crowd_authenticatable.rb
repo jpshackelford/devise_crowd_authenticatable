@@ -14,11 +14,11 @@ module Devise
   @@crowd_logger = true
   
   # Add valid users to database
-  mattr_accessor :d_create_user
+  mattr_accessor :crowd_create_user
   @@crowd_create_user = false
   
   mattr_accessor :crowd_config
-  # @@ldap_config = "#{Rails.root}/config/ldap.yml"
+   #@@crowd_config = "#{Rails.root}/config/crowd.yml"
 
 end
 

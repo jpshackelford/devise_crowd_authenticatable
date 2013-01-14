@@ -1,1 +1,4 @@
 test:
+   crowd_url: https://localhost/crowd/rest/usermanagement/latest/
+   application: test
+   password: test

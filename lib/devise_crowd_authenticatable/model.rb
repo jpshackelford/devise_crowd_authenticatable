@@ -41,29 +41,26 @@ module Devise
           return false
         end
       end
-      
-      def ldap_groups
-        Devise::LdapAdapter.get_groups(login_with)
-      end
+
 
       module ClassMethods
         # Authenticate a user based on configured attribute keys. Returns the
         # authenticated user if it's valid or nil.
         def authenticate_with_crowd(attributes={})
-          login_with = ::Devise.authentication_keys.first
-          DeviseCrowdAuthenticatable::Logger.send('CROWD '+@login_with)
-          return nil unless attributes[login_with].present?
+          auth_key = self.authentication_keys.first
+          return nil unless attributes[auth_key].present?
 
-          # resource = find_for_ldap_authentication(conditions)
-          resource = scoped.where(login_with => attributes[login_with]).first
+          auth_key_value = (self.case_insensitive_keys || []).include?(auth_key) ? attributes[auth_key].downcase : attributes[auth_key]
+
+          # resource = find_for_crowd_authentication(conditions)
+          resource = where(auth_key => auth_key_value).first
 
           if (resource.blank?)
             resource = new
-            resource[login_with] = login_with
+            resource[auth_key] = auth_key_value
             resource.password = attributes[:password]
           end
-                    
-          if resource.try(:valid_crowd_authentication?, attributes[:password])
+          if resource.try(:valid_crowd_authentication?,attributes[:password])
             resource.save if resource.new_record?
             return resource
           else

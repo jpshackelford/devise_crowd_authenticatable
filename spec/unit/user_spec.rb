@@ -120,7 +120,7 @@ describe 'Users' do
     describe "use groups for authorization" do
       before do
         @admin = Factory.create(:admin)
-        @user = Factory.create(:user)
+       # @user = Factory.create(:user)
         ::Devise.authentication_keys = [:email]
 
       end

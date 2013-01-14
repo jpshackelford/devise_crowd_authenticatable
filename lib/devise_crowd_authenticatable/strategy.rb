@@ -2,11 +2,11 @@ require 'devise/strategies/authenticatable'
 
 module Devise
   module Strategies
-    # Strategy for signing in a user based on his login and password using LDAP.
+    # Strategy for signing in a user based on his login and password using Crowd.
     # Redirects to sign_in page if it's not authenticated
     class CrowdAuthenticatable < Authenticatable
       def valid?
-        valid_controller? && valid_params? && mapping.to.respond_to?(:authenticate_with_ldap)
+        valid_controller? && valid_params? && mapping.to.respond_to?(:authenticate_with_crowd)
       end
 
       # Authenticate a user based on login and password params, returning to warden
