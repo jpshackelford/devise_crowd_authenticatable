@@ -9,7 +9,7 @@ module DeviseCrowdAuthenticatable
     
     
     def create_crowd_config
-      copy_file "ldap.yml", "config/crowd.yml"
+      copy_file "config/crowd.yml"
     end
     
     def create_default_devise_settings
@@ -36,8 +36,6 @@ module DeviseCrowdAuthenticatable
       if options.advanced?  
         settings << <<-eof  
   # ==> Advanced Crowd Configuration
-  # config.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap| "\#{attribute}=\#{login},\#{ldap.base}" }
-  
         eof
       end
       
