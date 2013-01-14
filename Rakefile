@@ -43,7 +43,7 @@ begin
     gemspec.email = "parmarg@gmail.com"
     gemspec.homepage = "http://github.com/parmarg/devise_crowd_authenticatable"
     gemspec.authors = ["Gurp Parmar"]
-    gemspec.add_runtime_dependency "devise", "1.1.2"
+    gemspec.add_runtime_dependency "devise", "~> 2.0"
 
   end
   Jeweler::GemcutterTasks.new
