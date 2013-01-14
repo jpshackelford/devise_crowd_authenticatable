@@ -1,6 +1,6 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
 
 desc 'Default: run unit tests.'
 task :default => :test
@@ -40,10 +40,10 @@ begin
     gemspec.name = "devise_crowd_authenticatable"
     gemspec.summary = "Crowd authentication module for Devise"
     gemspec.description = "Crowd authentication module for Devise"
-    gemspec.email = "jpshack@gmail.com"
-    gemspec.homepage = "http://github.com/jpshackelford/devise_crowd_authenticatable"
-    gemspec.authors = ["Curtis Schiewek", "Daniel McNevin"]
-    gemspec.add_runtime_dependency "devise", "1.1.2"
+    gemspec.email = "parmarg@gmail.com"
+    gemspec.homepage = "http://github.com/parmarg/devise_crowd_authenticatable"
+    gemspec.authors = ["Gurp Parmar"]
+    gemspec.add_runtime_dependency "devise", "~> 2.0"
 
   end
   Jeweler::GemcutterTasks.new

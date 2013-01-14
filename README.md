@@ -2,7 +2,7 @@ Devise Crowd Authenticatable
 ===========================
 
 **_Please Note_**
-THIS IS A RECENT FORK OF LDAP AUTHENTICATABLE AND IS NOT READY FOR USE!
+THIS MODULE CAN ONLY DO AUTHENTICATION AT THIS MOMENT.
 
 Devise Crowd Authenticatable is a Crowd based authentication strategy for the
 [Devise](http://github.com/plataformatec/devise) authentication framework.
@@ -22,7 +22,7 @@ Requirements
 
 These gems are dependencies of the gem:
 
-- Devise 1.1.2
+- Devise > 2.0
 - 
 
 Installation
@@ -30,12 +30,12 @@ Installation
 
 In the Gemfile for your application:
 
-    gem "devise", "1.1.2"
+    gem "devise", "~> 2.0"
     gem "devise_crowd_authenticatable"
     
 To get the latest version, pull directly from github instead of the gem:
 
-    gem "devise_crowd_authenticatable", :git => "git://github.com/jpshackelford/devise_crowd_authenticatable.git"
+    gem "devise_crowd_authenticatable", :git => "git://github.com/parmarg/devise_crowd_authenticatable.git"
 
 
 Setup
@@ -114,50 +114,11 @@ These parameters will be added to `config/initializers/devise.rb` when you pass 
 * crowd\_auth\_username\_builder _(default: `Proc.new() {|attribute, login, crowd| "#{attribute}=#{login},#{crowd.base}" }`)_
   * You can pass a proc to the username option to explicitly specify the format that you search for a users' DN on your Crowd server.
 
-Testing
--------
-
-This has been tested using the following setup:
-
-* Mac OSX 10.6
-* OpenCrowd 2.4.11
-* REE 1.8.7 (2010.02)
-
-All unit and functional tests are part of a sample rails application under test/rails_app and requires a working Crowd sever.
-
-Build / Start Instructions for Test Crowd Server
------------------------------------------------
-
-Make sure that directories test/crowd/opencrowd-data and test/crowd/opencrowd-data/run exist.
-
-  1. To start the server, run `./run_server.sh`
-  2. Add the basic structure: `crowdadd -x -h localhost -p 3389 -x -D "cn=admin,dc=test,dc=com" -w secret -f base.ldif`
-    * this creates the users / passwords:
-      * cn=admin,dc=test,com / secret
-      * cn=example.user@test.com,ou=people,dc=test,dc=com / secret
-  3. You should now be able to run the tests in test/rails_app by running: `rake`
-  
-  _For a Crowd server running SSL_
-  
-  1. To start the server, run: `./run_server.sh --ssl`
-  2. Add the basic structure: `crowdadd -x -H crowds://localhost:3389 -x -D "cn=admin,dc=test,dc=com" -w secret -f base.ldif`
-    * this creates the users / passwords:
-      * cn=admin,dc=test,com / secret
-      * cn=example.user@test.com,ou=people,dc=test,dc=com / secret
-  3. You should now be able to run the tests in test/rails_app by running: `Crowd_SSL=true rake`
-
-**_Please Note_**
-
-In your system Crowd config file (on OSX it's /etc/opencrowd/crowd.conf) make sure you have the following setting:
-
-    TLS_REQCERT	never
-
-This will allow requests to go to the test Crowd server without being signed by a trusted root (it uses a self-signed cert)
 
 References
 ----------
 
-* [OpenLDAP](http://www.opencrowd.org/)
+* [Crowd](http://www.atlassian.com/crowd/)
 * [Devise](http://github.com/plataformatec/devise)
 * [Warden](http://github.com/hassox/warden)
 
